@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BasicArrayOps
+namespace ForeachReadOnly
 {
     class Program
     {
         static void Main(string[] args)
         {
-            string monday = "Monday";
-
             string[] daysOfWeek =
             {
                 "Monday",
@@ -23,20 +21,22 @@ namespace BasicArrayOps
                 "Sunday"
             };
 
-            //string tuesday = daysOfWeek[1];
-            //Console.WriteLine(tuesday);
+            MakeDaysPlural(daysOfWeek);
 
-            //Console.WriteLine("Type in index of day to look up");
-            //int day = int.Parse(Console.ReadLine());
-            //Console.WriteLine(daysOfWeek[day]);
-
-            daysOfWeek[5] = "Party Day";
-            foreach (string listItem in daysOfWeek)
+            foreach (var day in daysOfWeek)
             {
-                Console.WriteLine(listItem);
+                Console.WriteLine(day);
             }
 
             Console.Read();
+        }
+
+        static void MakeDaysPlural(string[] daysOfWeek)
+        {
+            for (int i = 0; i < daysOfWeek.Length; i++)
+            {
+                daysOfWeek[i] = daysOfWeek[i] + "s";
+            }
         }
     }
 }
